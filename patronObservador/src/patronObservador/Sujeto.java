@@ -17,9 +17,8 @@ public class Sujeto {
 	public void setEstado(String estado) {
 		
 		this.estado = estado;
+		this.notificarObservadores();
 	}
-
-
 
 
 	public void register(Observador observador){

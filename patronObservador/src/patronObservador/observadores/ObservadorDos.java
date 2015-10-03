@@ -13,7 +13,7 @@ public class ObservadorDos extends Observador {
 	
 	@Override
 	public void actualizar() {
-		System.out.println("Sujeto reportó cambio en Observador Dos: "+ sujeto.getEstado());
+		System.out.println("    Sujeto reportó cambio en Observador Dos: "+ sujeto.getEstado());
 	}
 
 }

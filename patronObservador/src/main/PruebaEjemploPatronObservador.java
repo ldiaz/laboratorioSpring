@@ -18,7 +18,7 @@ public class PruebaEjemploPatronObservador {
 		objetoObservable1.setEstado("estado uno");
 		
 		System.out.println("Cambiando el estado del sujeto a 'estado dos'");
-		objetoObservable1.setEstado("estado uno");
+		objetoObservable1.setEstado("estado Dos");
 		
 		System.out.println("Cambiando el estado del sujeto2 a 'estado tres'");
 		objetoObservable2.setEstado("estado tres");
