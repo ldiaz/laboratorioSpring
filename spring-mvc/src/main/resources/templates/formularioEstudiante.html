@@ -8,20 +8,20 @@
 	
 	<h1>Formulario de registro de estudiante</h1>
 	
-	<form action="">
+	<form th:action="@{/estudiante}" th:object="${estudiante}" method="post">
 		<div>
 		    <label for="nombre">Nombre estudiante:</label>
-			<input type="text" name="nombre" value="" />
+			<input type="text" name="nombre" th:field="*{nombre}" value="" />
 		</div>
 		
 		<div>
 		    <label for="apellido">Apellido estudiante:</label>
-			<input type="text" name="apellido" value="" />
+			<input type="text" name="apellido" th:field="*{apellido}" value="" />
 		</div>
 		
 		<div>
 		    <label for="tipoDocumentoIdentificacion">Tipo de documento:</label>
-			<select name="tipoDocumentoIdentificacion">
+			<select name="tipoDocumentoIdentificacion" th:field="*{tipoDocumentoIdentificacion}">
 				<option value="cc">Cédula</option>
 				<option value="ti">Tarjeta de Indentidad</option>
 				<option value="nd">Otro</option>
@@ -30,8 +30,9 @@
 		
 		<div>
 		    <label for="numeroIdentificacion">Numero de identificación:</label>
-			<input type="text" name="numeroIdentificacion" value="" />
+			<input type="text" name="numeroIdentificacion" value="" th:field="*{numeroIdentificacion}"/>
 		</div>
+		<input type="submit" value="Enviar" />
 	</form>
 	
 </body>
