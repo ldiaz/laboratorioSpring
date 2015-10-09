@@ -5,6 +5,34 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<div>Estudiante</div>
+	
+	<h1>Formulario de registro de estudiante</h1>
+	
+	<form action="">
+		<div>
+		    <label for="nombre">Nombre estudiante:</label>
+			<input type="text" name="nombre" value="" />
+		</div>
+		
+		<div>
+		    <label for="apellido">Apellido estudiante:</label>
+			<input type="text" name="apellido" value="" />
+		</div>
+		
+		<div>
+		    <label for="tipoDocumentoIdentificacion">Tipo de documento:</label>
+			<select name="tipoDocumentoIdentificacion">
+				<option value="cc">Cédula</option>
+				<option value="ti">Tarjeta de Indentidad</option>
+				<option value="nd">Otro</option>
+			</select>
+		</div>
+		
+		<div>
+		    <label for="numeroIdentificacion">Numero de identificación:</label>
+			<input type="text" name="numeroIdentificacion" value="" />
+		</div>
+	</form>
+	
 </body>
 </html>
