@@ -5,6 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+	<div>
+		<ul>
+			<li><a href="/estudiantes/nuevo">Nuevo estudiante</a></li>
+		</ul>
+	</div>
 	
 	<h1>Listado de estudiantes</h1>
 	
@@ -13,12 +19,17 @@
 			<thead>Identificacion</thead>
 			<thead>Nombre</thead>
 			<thead>Apellido</thead>
+			<thead>Acciones</thead>
 		</tr>
 		
 		<tr th:each="estudiante : ${estudiantes}">
 			<td th:text="${estudiante.numeroIdentificacion}"></td>
 			<td th:text="${estudiante.nombre}"></td>
 			<td th:text="${estudiante.apellido}"></td>
+			<td>
+				<a th:href="@{/estudiantes/{idEstudiante}/editar(idEstudiante=${estudiante.numeroIdentificacion})}">Editar</a>
+				<a href="#">Eliminar</a>
+			</td>
 		</tr>
 		
 	</table>

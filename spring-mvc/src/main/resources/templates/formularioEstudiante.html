@@ -8,7 +8,7 @@
 	
 	<h1>Formulario de registro de estudiante</h1>
 	
-	<form th:action="@{/estudiante}" th:object="${estudiante}" method="post">
+	<form th:action="@{/estudiantes/crear}" th:object="${estudiante}" method="post">
 		<div>
 		    <label for="nombre">Nombre estudiante:</label>
 			<input type="text" name="nombre" th:field="*{nombre}" value="" />
