@@ -1,10 +1,21 @@
 package com.laboratorioprueba.laboratorio1.spring_mvc.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GeneratorType;
+
+@Entity
 public class Estudiante {
+	
+	@Id
+    //GeneratedValue(strategy=GenerationType.AUTO)
+	private int numeroIdentificacion;
 
 	private String nombre;
 	private String apellido;
-	private int numeroIdentificacion;
 	private String tipoDocumentoIdentificacion;
 	
 
