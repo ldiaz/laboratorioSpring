@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.laboratorioprueba.laboratorio1.spring_mvc.domain.Estudiante;
 import com.laboratorioprueba.laboratorio1.spring_mvc.repositorios.RepositorioEstudiante;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -35,5 +38,16 @@ public class ControladorEstudiante {
 		repoEstudiante.save(estudiante);
 
 		return "vistaEstudiante";
+	}
+	
+	@RequestMapping(value="estudiante/listado", method=RequestMethod.GET)
+	public String listarEstudiantes(Model modelo){
+		
+		List<Estudiante> listado = (List<Estudiante>) repoEstudiante.findAll();
+		
+		modelo.addAttribute("estudiantes", listado);
+		
+		
+		return "listadoEstudiantes";
 	}
 }

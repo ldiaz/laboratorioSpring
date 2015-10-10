@@ -18,6 +18,17 @@ public class Estudiante {
 	private String apellido;
 	private String tipoDocumentoIdentificacion;
 	
+	public Estudiante(){
+		
+	}
+
+	public Estudiante(int numeroIdentificacion, String nombre, String apellido, String tipoDocumentoIdentificacion) {
+		super();
+		this.numeroIdentificacion = numeroIdentificacion;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.tipoDocumentoIdentificacion = tipoDocumentoIdentificacion;
+	}
 
 	public String getNombre() {
 		return nombre;
