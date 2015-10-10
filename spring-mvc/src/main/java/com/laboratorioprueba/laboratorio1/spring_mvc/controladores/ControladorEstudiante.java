@@ -65,4 +65,15 @@ public class ControladorEstudiante {
 		return "formularioEstudiante";
 	}
 	
+	@RequestMapping(value="estudiantes/{idEstudiante}/eliminar", method=RequestMethod.GET)
+	public String eliminarEstudiante(@PathVariable Integer idEstudiante, Model modelo){
+		
+		Estudiante e = repoEstudiante.findOne(idEstudiante);
+		repoEstudiante.delete(e);
+		
+		modelo.addAttribute("estudiante", e);
+		
+		return "vistaEstudiante";
+	}
+	
 }

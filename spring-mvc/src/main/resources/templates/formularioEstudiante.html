@@ -1,39 +1,40 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Handling Form Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	
-	<h1>Formulario de registro de estudiante</h1>
-	
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout/principal :: page">
+<body th:fragment="content">
+
+
+      <h1>Formulario de registro de estudiante</h1>
+	<div class="container">
 	<form th:action="@{/estudiantes/crear}" th:object="${estudiante}" method="post">
-		<div>
+		<div class="form-group">
 		    <label for="nombre">Nombre estudiante:</label>
 			<input type="text" name="nombre" th:field="*{nombre}" value="" />
 		</div>
 		
-		<div>
+		<div class="form-group">
 		    <label for="apellido">Apellido estudiante:</label>
-			<input type="text" name="apellido" th:field="*{apellido}" value="" />
+			<input class="form-control" type="text" name="apellido" th:field="*{apellido}" value="" />
 		</div>
 		
-		<div>
+		<div class="form-group">
 		    <label for="tipoDocumentoIdentificacion">Tipo de documento:</label>
-			<select name="tipoDocumentoIdentificacion" th:field="*{tipoDocumentoIdentificacion}">
+			<select class="form-control" name="tipoDocumentoIdentificacion" th:field="*{tipoDocumentoIdentificacion}">
 				<option value="cc">Cédula</option>
 				<option value="ti">Tarjeta de Indentidad</option>
 				<option value="nd">Otro</option>
 			</select>
 		</div>
 		
-		<div>
+		<div class="form-group">
 		    <label for="numeroIdentificacion">Numero de identificación:</label>
-			<input type="text" name="numeroIdentificacion" value="" th:field="*{numeroIdentificacion}"/>
+			<input class="form-control" type="text" name="numeroIdentificacion" value="" th:field="*{numeroIdentificacion}"/>
 		</div>
-		<input type="submit" value="Enviar" />
+		<input class="btn btn-default" type="submit" value="Enviar" />
 	</form>
+	</div>
+	
 	
 </body>
 </html>

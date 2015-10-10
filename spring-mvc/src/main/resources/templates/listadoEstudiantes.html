@@ -1,25 +1,25 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+	 th:include="layout/principal :: page">
 <head> 
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
 </head>
 <body>
 
-	<div>
-		<ul>
-			<li><a href="/estudiantes/nuevo">Nuevo estudiante</a></li>
-		</ul>
-	</div>
+<div th:fragment="content">
+
+	
 	
 	<h1>Listado de estudiantes</h1>
 	
-	<table>
+	<table class="table">
 		<tr>
-			<thead>Identificacion</thead>
-			<thead>Nombre</thead>
-			<thead>Apellido</thead>
-			<thead>Acciones</thead>
+			<th>Identificacion</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Acciones</th>
 		</tr>
 		
 		<tr th:each="estudiante : ${estudiantes}">
@@ -27,12 +27,14 @@
 			<td th:text="${estudiante.nombre}"></td>
 			<td th:text="${estudiante.apellido}"></td>
 			<td>
-				<a th:href="@{/estudiantes/{idEstudiante}/editar(idEstudiante=${estudiante.numeroIdentificacion})}">Editar</a>
-				<a href="#">Eliminar</a>
+				<a class="btn btn-primary" th:href="@{/estudiantes/{idEstudiante}/editar(idEstudiante=${estudiante.numeroIdentificacion})}">Editar</a>
+				<a class="btn btn-danger" th:href="@{/estudiantes/{idEstudiante}/eliminar(idEstudiante=${estudiante.numeroIdentificacion})}">Eliminar</a>
 			</td>
 		</tr>
 		
 	</table>
 	
+	
+	</div>
 </body>
 </html>
