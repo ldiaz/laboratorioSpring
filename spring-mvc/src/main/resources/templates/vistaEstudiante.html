@@ -9,7 +9,15 @@
 	
 	<h1>Vista de registro de estudiante</h1>
 	
+	
+	<p th:if="${error != null}" th:text="${error}" class="bg-danger"></p>
+	
 	<table>
+		<tr>
+			<td>Numero identificacion</td>
+			<td th:text="${estudiante.numeroIdentificacion}"></td>
+		</tr>
+	
 		<tr>
 			<td>Nombre</td>
 			<td th:text="${estudiante.nombre}"></td>

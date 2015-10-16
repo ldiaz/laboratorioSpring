@@ -63,7 +63,24 @@ public class ControladorEstudiante {
 		
 		modelo.addAttribute("estudiante", e);
 		
-		return "formularioEstudiante";
+		return "formularioEstudianteActualizar";
+	}
+	
+	@RequestMapping(value="estudiantes/{idEstudiante}/actualizar", method=RequestMethod.POST)
+	public String actualizarEstudiante(@PathVariable Integer idEstudiante, @ModelAttribute Estudiante estudiante, Model modelo){
+		
+		Estudiante e = null;
+		
+		try {
+			e = servEstudiante.actualizarEstudiante(idEstudiante, estudiante);
+		} catch (Exception er) {
+			modelo.addAttribute("error", er.getMessage());
+			e = estudiante;
+		}
+		
+		modelo.addAttribute("estudiante", e);
+		
+		return "vistaEstudiante";
 	}
 	
 	@RequestMapping(value="estudiantes/{idEstudiante}/eliminar", method=RequestMethod.GET)
@@ -74,6 +91,7 @@ public class ControladorEstudiante {
 			e = servEstudiante.eliminarEstudiante(idEstudiante);
 		} catch (Exception e1) {
 			modelo.addAttribute("error", e1.getMessage());
+			e = new Estudiante();
 		}
 		
 		modelo.addAttribute("estudiante", e);
