@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laboratorioprueba.laboratorio1.spring_mvc.domain.Estudiante;
 import com.laboratorioprueba.laboratorio1.spring_mvc.repositorios.RepositorioEstudiante;
+import com.laboratorioprueba.laboratorio1.spring_mvc.servicios.ServicioEstudiante;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import org.springframework.stereotype.Controller;
 public class ControladorEstudiante {
 	
 	@Autowired
-	private RepositorioEstudiante repoEstudiante;
+	private ServicioEstudiante servEstudiante;
 
 	@RequestMapping(value="estudiantes/nuevo", method=RequestMethod.GET)
 	public String formularioEstudiante(Model modelo){
@@ -37,7 +38,7 @@ public class ControladorEstudiante {
 		System.out.println("posteando desde el formulario");
 		estudiante.setNombre(estudiante.getNombre());
 		
-		repoEstudiante.save(estudiante);
+		servEstudiante.crearEstudiante(estudiante);
 
 		return "vistaEstudiante";
 	}
@@ -45,7 +46,7 @@ public class ControladorEstudiante {
 	@RequestMapping(value="estudiantes", method=RequestMethod.GET)
 	public String listarEstudiantes(Model modelo){
 		
-		List<Estudiante> listado = (List<Estudiante>) repoEstudiante.findAll();
+		List<Estudiante> listado = servEstudiante.listarEstudiantes(1, 5);
 		
 		modelo.addAttribute("estudiantes", listado);
 		
@@ -58,7 +59,7 @@ public class ControladorEstudiante {
 		
 		System.out.println("idEstudiante= "+ idEstudiante);
 		
-		Estudiante e = repoEstudiante.findOne(idEstudiante);
+		Estudiante e = servEstudiante.buscarEstudiante(idEstudiante);
 		
 		modelo.addAttribute("estudiante", e);
 		
@@ -68,8 +69,12 @@ public class ControladorEstudiante {
 	@RequestMapping(value="estudiantes/{idEstudiante}/eliminar", method=RequestMethod.GET)
 	public String eliminarEstudiante(@PathVariable Integer idEstudiante, Model modelo){
 		
-		Estudiante e = repoEstudiante.findOne(idEstudiante);
-		repoEstudiante.delete(e);
+		Estudiante e = null;
+		try {
+			e = servEstudiante.eliminarEstudiante(idEstudiante);
+		} catch (Exception e1) {
+			modelo.addAttribute("error", e1.getMessage());
+		}
 		
 		modelo.addAttribute("estudiante", e);
 		
