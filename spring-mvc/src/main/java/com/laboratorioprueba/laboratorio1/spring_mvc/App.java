@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Hello world!
+ * aplicacion estudiantes de spring rocas!
  *
  */
 @SpringBootApplication
