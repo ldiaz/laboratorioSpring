@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.laboratorioprueba.laboratorio1.spring_mvc.seguridad.modelo.RolUsuario;
 import com.laboratorioprueba.laboratorio1.spring_mvc.seguridad.modelo.Usuario;
 import com.laboratorioprueba.laboratorio1.spring_mvc.seguridad.service.InterfazServicioUsuario;
 
@@ -23,15 +24,17 @@ public class ControladorUsuario {
 	
 		
 		modelo.addAttribute("usuario", u);
+		modelo.addAttribute("rol", new RolUsuario());
+
 		
 		return "seguridad/admin/formularioUsuario";
 	}
 
 	@RequestMapping(value="/admin/usuarios/crear", method=RequestMethod.POST)
-	public String crearUsuario(@ModelAttribute Usuario datosUsuario, Model modelo){
+	public String crearUsuario(@ModelAttribute Usuario datosUsuario, @ModelAttribute RolUsuario rol, Model modelo){
 		
 		Usuario u = Usuario.createUsuario(datosUsuario.getUsername(), datosUsuario.getEmail(), datosUsuario.getPassword());
-		
+		u.getRoles().add(rol);
 		servicioUsuario.guardarUsuario(u);
 		
 		modelo.addAttribute("usuario", u);
