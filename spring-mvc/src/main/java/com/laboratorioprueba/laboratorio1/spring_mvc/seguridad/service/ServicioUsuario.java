@@ -22,7 +22,7 @@ import com.laboratorioprueba.laboratorio1.spring_mvc.seguridad.repositorio.Repos
 
 @Service
 @Qualifier("customUserDetailsService")
-public class ServicioUsuario implements UserDetailsService {
+public class ServicioUsuario implements UserDetailsService, InterfazServicioUsuario {
     @Autowired
     private RepositorioUsuario userRepository;
 
@@ -54,5 +54,12 @@ public class ServicioUsuario implements UserDetailsService {
 
         return new ArrayList<GrantedAuthority>(setAuths);
     }
+
+	@Override
+	public Usuario guardarUsuario(Usuario nuevoUsuario) {
+		
+		return userRepository.save(nuevoUsuario);
+	}
+    
 }
 

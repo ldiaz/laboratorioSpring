@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:include="layout/principal :: page">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body th:fragment="content">
+	
+	<h1>Vista de nuevo usuario</h1>
+	
+	
+	<p th:if="${error != null}" th:text="${error}" class="bg-danger"></p>
+	
+	<table>
+		<tr>
+			<td>usarname</td>
+			<td th:text="${usuario.username}"></td>
+		</tr>
+	
+		<tr>
+			<td>Nombre</td>
+			<td th:text="${usuario.password}"></td>
+		</tr>
+		
+		<tr>
+			<td>Apellido</td>
+			<td th:text="${usuario.email}"></td>
+		</tr>
+		
+		
+	</table>
+	
+</body>
+</html>
