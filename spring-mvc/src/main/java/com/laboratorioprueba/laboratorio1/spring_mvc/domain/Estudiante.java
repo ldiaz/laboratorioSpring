@@ -1,5 +1,7 @@
 package com.laboratorioprueba.laboratorio1.spring_mvc.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Estudiante {
 	private String nombre;
 	private String apellido;
 	private String tipoDocumentoIdentificacion;
+	private Date fechaNacimiento;
 	
 	public Estudiante(){
 		
@@ -54,6 +57,15 @@ public class Estudiante {
 	public void setTipoDocumentoIdentificacion(String tipoDocumentoIdentificacion) {
 		this.tipoDocumentoIdentificacion = tipoDocumentoIdentificacion;
 	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
 	
 	
 	

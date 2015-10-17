@@ -10,4 +10,6 @@ import com.laboratorioprueba.laboratorio1.spring_mvc.seguridad.modelo.Usuario;
 @Qualifier(value = "userRepository")
 public interface RepositorioUsuario extends CrudRepository<Usuario, Long> {
     public Usuario findByUsername(String username);
+    
+   
 }
