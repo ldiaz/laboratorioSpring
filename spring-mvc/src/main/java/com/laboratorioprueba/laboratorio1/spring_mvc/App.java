@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Aplicacion principal de spring. 
+ * Aplicacion principal de spring!
  *
  */
 @SpringBootApplication
