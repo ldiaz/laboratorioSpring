@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Aplicaciones Isabel!
+ * Aplicacion principal de spring!
  *
  */
 @SpringBootApplication
