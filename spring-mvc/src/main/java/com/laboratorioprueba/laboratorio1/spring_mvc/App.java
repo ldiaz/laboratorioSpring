@@ -7,9 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 /**
- * Edito la misma linea aproposito
- * voy a darle commit en mi repositorio local y luego trato de subir cambios a
- * repositorio remoto
+ * Aplicacion principal de spring. 
  *
  */
 @SpringBootApplication
