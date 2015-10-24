@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Aplicacion principal de spring! 2
- * leounicauca sube version a .5.1 en pom
+ * leounicauca sube version a .6.2 en pom
  */
 @SpringBootApplication
 public class App 
